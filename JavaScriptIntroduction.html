@@ -88,8 +88,10 @@
         ''*/
 
         let userNumber = prompt ( ' Введите трёхзначное число: ' )
-        let secondNumber = userNumber % 3;
-        alert ( `Вторая цифра этого числа: ${secondNumber} `)
+        let secondNumberA = userNumber / 10;
+        let secondNumberB = secondNumberA % 10;
+        alert ( `Вторая цифра этого числа: ${secondNumberB} `)
+
 
 
     </script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IF</title>
+    <script>
+        let userNumber = parseInt ( prompt ('Enter a number') );
+        let mod = userNumber % 2;
+        /*
+        if ( mod === 0 ) {
+            alert ( ` Число ${userNumber} чётное ` )
+        }
+        else if ( isNaN(mod)) {
+            alert ( ` ${userNumber} не число ` )
+        }  
+        else  {
+            alert ( ` Число ${userNumber} нечётное ` )
+        }
+
+        
+        let string1 = "rgregrt";
+        let string2 = null;
+        let string3; 
+        */
+        
+        switch ( mod ) {
+            case 0: 
+                alert ( ` Число ${userNumber} чётное ` );
+                break;
+
+            default: 
+                alert ( ` Число ${userNumber} нечётное ` );
+                break;
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
