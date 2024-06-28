@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch-practice</title>
+    <script>
+        /*
+        let input = prompt( 'Введите число месяца');
+        switch ( input ) {
+            case '1':
+                alert ( 'Январь' )
+                break;
+
+            case '2':
+                alert ( 'Февраль' )
+                break;
+
+            case '3':
+                alert ( 'Март' )
+                break;
+            case '4':
+                alert ( 'Апрель' )
+                break;
+
+            case '5':
+                alert ( 'Май' )
+                break;
+
+            case '6':
+                alert ( 'Июнь' )
+                break;
+
+            case '7':
+                alert ( 'Июль' )
+                break;
+    
+            case '8':
+                alert ( 'Август' )
+                break;
+
+            case '9':
+                alert ( 'Сентябрь' )
+                break;
+
+            case '10':
+                alert ( 'Октябрь' )
+                break;
+
+            case '11':
+                alert ( 'Ноябрь' )
+                break;
+            case '12':
+
+                alert ( 'Декабрь' )
+                break;
+
+            default:
+                alert ( 'Нет такого месяца' )
+                break;
+        } */
+
+       /*
+        let userNumberA = prompt( ' Введите первое число ' );
+        let userNumberB = prompt( ' Введите второе число ' );
+        let math = prompt( ' Введите знак ' );
+        let result = 0;
+        switch (math) {
+ 
+            case '+':
+                result = parseInt(userNumberA) + parseInt(userNumberB);
+                alert ( ` ${userNumberA} + ${userNumberB} = ${result} ` )
+                break;
+
+            case '-':
+                result = parseInt(userNumberA) - parseInt(userNumberB);
+                alert ( ` ${userNumberA} - ${userNumberB} = ${result} ` )
+                break;
+
+            case '*':
+                result = parseInt(userNumberA) * parseInt(userNumberB);
+                alert ( ` ${userNumberA} * ${userNumberB} = ${result}`  )
+                break;
+
+            case '/':
+                result = parseInt(userNumberA) / parseInt(userNumberB);
+                alert ( ` ${userNumberA} / ${userNumberB} = ${result} ` )
+                break;
+
+        } */
+
+        /*
+        let userNumberA = prompt( ' Введите первое число ' );
+        let userNumberB = prompt( ' Введите второе число ' );
+        let innerOutput = 0;
+        let output = (userNumberA > userNumberB) ? ( ` ${userNumberA} больше ` ) : (userNumberA < userNumberB) ? ( ` ${userNumberB} больше ` ) : ( ` ${userNumberA} = ${userNumberB} ` )
+        alert ( ` ${output} ` )
+        */
+
+        /*
+        let userNumber = prompt( ' Введите число ' );
+        let output = ( (userNumber % 5) == 0) ? alert ( ` ${userNumber}  кратно 5` ) : alert ( ` ${userNumber}  некратно 5` )
+        */
+
+        /*
+        let userPlanet = prompt( ' Введите название планеты ' );
+        let output =  ( userPlanet == 'Земля' ) ? alert ( "Привет, землянин!" ) : ( userPlanet == 'земля' ) ? alert ( "Привет, землянин!" ) : alert ( " Привет, инопланетянин! " )
+        */
+
+        /*
+        let userConfirm = confirm( ' Вывести #? ' );
+        let n = parseInt(prompt( 'Сколько # вывести? '));
+        let userString = '';
+        i = 0;
+        while (userConfirm) {
+            while ( i <= (n-1) ) {
+                i++;
+                userString += '#'; 
+            }
+            alert(userString);
+            userConfirm = confirm( ' Вывести  ваши # снова? ' );
+        }
+        */
+
+        
+        let userNumber = parseInt(prompt( 'Введите число') );
+        let userConfirm = confirm( ' Вывести все числа от введенного до 0? ' );
+        let userString = '';
+        let stringI = '';
+        let i = userNumber;
+        while ( userConfirm == true ) {
+            while ( i >= 0 ) {
+            userString += i;
+                i--; 
+            }
+            alert(userString);
+            userConfirm = confirm( ' Вывести снова? ' );
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
