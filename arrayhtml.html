@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrayhtml</title>
+    <script>
+        // let numbers = [1, 2, 3, 4];
+        // // alert(numbers[0]);
+        // numbers[3] = 100;
+        // numbers[4] = 200;
+        /*
+        alert(numbers[4]);
+        alert(numbers[3]);
+        document.write(numbers.length); */
+        /*
+        for (let i = 0; i < numbers.length; i++) {
+            alert(numbers[1]);
+        } 
+        */
+
+        //document.write(numbers.toString());
+
+        //randomNumbers[0] = Math.floor( Math.random() * 100 );
+
+        let randomNumbers = getRandomArray();
+        showEvenElements(randomNumbers);
+
+        function showEvenElements(array) {
+            for(let i = 0; i < array.length; i+=2)
+            array[i] = '__';
+            document.write(array);
+        }
+
+
+        // function show(array) {
+        //      document.write(array);
+        // }
+
+        function getRandomArray () {
+            let array = [];
+            for (let i = 0; i < 10; i++) {
+                array[i] = Math.floor( Math.random() * 100 );
+            }
+
+            return array;
+        }
+
+    </script>
+</head>
+<body>
+</body>
+</html>
