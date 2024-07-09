@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <script>
+        // function UserFunction (firstName, lastName, surname, age, gender, city) {
+        //     this.firstName = firstName;
+        //     this.lastName = lastName;
+        //     this.surname = surname;
+        //     this.age = age;
+        //     this.gender = gender;
+        //     this.city = city;
+        // };
+
+        //  let user = new UserFunction('Сергей', 'Владиславович', 'Кочетков', '30 лет')
+        // // let user = {
+        // //     firstName: 'Сергей', 
+        // //     lastName: 'Владиславович',
+        // //     surname: 'Кочетков',
+        // //     age: '30 лет',
+        // //     city: 'Томск',
+        // //     gender: 'мужчина',
+
+        // // };
+        // document.write(`${user.surname}, ${user.firstName}, ${user.lastName}, ${user.age}, ${user.gender}, живёт в: ${user.city}`);
+        
+        // function PrintMachineFunction (fontsize, color, fontfamily) {
+        //     this.fontsize = fontsize;
+        //     this.color = color;
+        //     this.fontfamily = fontfamily;
+
+        //     this.print = function(text) {
+        //         let output = `<p style = " font-size: ${fontsize}px; color: ${color}; font-family: ${fontfamily}"> ${text} </p>`
+        //         document.write(output);
+        //         return output
+        //     }
+        // };
+        
+        // let printMachine1 = new PrintMachineFunction( 30, 'green', 'serif' );
+        
+        // let printMachine2 = new PrintMachineFunction( 10, 'blue', 'arial' );
+
+        // printMachine1.print('nmnmnmnmmn');
+
+        // printMachine2.print('rthrthrthrth');
+        
+
+        // document.write( `${printMachine1.fontsize}, ${printMachine1.color}, ${printMachine1.fontfamily} <br/>` );
+        // document.write( `${printMachine2.fontsize}, ${printMachine2.color}, ${printMachine2.fontfamily}` ); 
+
+        function News (header, text, tags, date) {
+
+            this.header = header;
+            this.text = text;
+            this.tags = tags;
+            this.date = date;
+
+            this.print = function(headerfontsize) {
+                let output = 
+                `<h1 style = " font-size: ${headerfontsize}px"> ${header} </h1>
+                <p> ${date} </p>
+                <p> ${text} </p>
+                <p> ${tags} </p>`;
+                document.write(output);
+            }
+        };
+
+        let firstNewsDate = Date();
+        let firstNewsTags = ['#1tag', '#2tag', '#3tag'];
+        let firstNews =  new News('tterreyhre', 'egregregregregrehtrhtrherhehreh', firstNewsTags, firstNewsDate);
+        firstNews.print(40);
+    </script>
+</head>
+<body>
+</body>
+</html>
