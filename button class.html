@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button class</title>
+    <script>
+        class Button {
+            constructor(width, height, text) {
+                this.width = width;
+                this.height = height;
+                this.text = text;
+            }
+            
+            showBtn() {
+                let output = `<input type = "button" value = "${this.text}" style = "width: ${this.width}px; height: ${this.height}px">`;
+                document.write(output);
+            }
+        }
+
+        class BootstrapButton extends Button{
+            constructor(width, height, text, color) {
+                super(width, height, text);
+                this.color = color;
+            }
+
+            showBtn() {
+                let output = `<input type = "button" value = "${this.text}" style = "width: ${this.width}px; height: ${this.height}px; background-color: ${this.color}">`;
+                document.write(output);
+            }
+        }
+        let button = new  Button(70, 90, "Cancel");
+        button.showBtn();
+
+        let bootstrapButton = new BootstrapButton(100, 100, "StyleButton", "lightblue");
+        bootstrapButton.showBtn();
+    </script>
+</head>
+<body>    
+</body>
+</html>

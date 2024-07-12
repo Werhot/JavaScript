@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes</title>
+    <script>
+
+        class Coffee {
+            constructor (name, volume, price) {
+
+                this.name = name;
+                this.volume = volume;
+                this.price =  price;
+            }
+
+            info() {
+               let information = ` Ваш ${this.name} объёмом ${this.volume}мл, будет стоить ${this.price} рублей`;
+               return information;
+            }
+            
+            make() {
+                alert( " Капучинно готовится " );
+            }
+
+        }
+
+        let coffee1 = new Coffee("capuchino", 100, 150);
+        alert(coffee1.info());
+        coffee1.make();
+
+        class Americano extends Coffee {
+            make() {
+                alert( " Американо готовится " );
+            }
+        }
+
+        let coffee2 = new Americano("Amtricano", 200, 250);
+        alert(coffee2.info());
+        coffee2.make();
+
+        
+        class Latte extends Coffee {
+            constructor(name, volume, price, milk) {
+                super(name, volume, price);
+
+                // this.name = name;
+                // this.volume = volume;
+                // this.price =  price;
+
+                this.milk = milk;
+            }
+
+            make() {
+                alert( " Латте готовится " );
+            }
+
+            info() {
+
+            //    let information = alert(` Ваш ${this.name} объёмом ${this.volume}мл, будет стоить ${this.price} рублей `);
+            //    return information;
+
+                let information = super.info();
+                information = information + `${this.milk} молока`;
+                return information;
+            }
+
+        }
+
+        let coffee3 = new Latte("Latte", 150, 200, 50);
+        alert(coffee3.info());
+        coffee3.make();
+    </script>
+</head>
+<body>
+</body>
+</html>
