@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    
+</head>
+<body>
+    <div id = "container" onmouseover = "mouseOverHandler()" onmouseout = "this.style.color = 'black'">
+        <p id = "text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Reprehenderit animi dicta ex perferendis aut quo deleniti velit eius ea. 
+            Tempore suscipit in cupiditate libero enim perspiciatis aperiam maxime obcaecati quo.
+        </p>
+    </div>
+    <input type = "button" value = "Click me"  onclick = "clickHandler()">
+
+    <script>
+        let div = document.getElementById("container");
+        // div.innerHTML = "<p>rgreghreret</p>";
+
+        div.style.backgroundColor = "lightblue";
+        div.style.padding = "20px";
+        div.style.width = "50%";
+
+        div.onmouseover = function() {
+            div.style.color = "white";
+        }
+
+        let paragraph = document.getElementById("text");
+        paragraph.addEventListener("click", textClickHandler1, false);
+        paragraph.addEventListener("click", textClickHandler2, false);
+
+        function textClickHandler1 () {
+            paragraph.style.fontSize = "20px";
+        }
+
+        function textClickHandler2 () {
+            paragraph.innerHTML += `<br/>${event.clientX}, ${event.clientY}`;
+        }
+
+        // function mouseOverHandler () {
+        //     div.style.color = "white";
+        // }
+
+        function clickHandler() {
+            div.style.backgroundColor = "green";
+        }
+    </script>
+</body>
+</html>
