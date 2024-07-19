@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabletask2</title>
+    <style>
+        #div {
+
+            background-color: cornflowerblue;
+
+            width: 200px;
+            height: 100px;
+
+            border: 1px solid cornflowerblue;
+            border-radius: 15px;
+
+            margin-top: 40px;
+
+            text-align: center;
+
+        }
+
+        #div input {
+
+            display: inline-block;
+
+            margin-top: 15%;
+
+            color: white;
+
+            border: none;
+
+            font-size: 23px;
+
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div id = "div">
+        <input type = "button" value = "👍     Like     0" id = "clickbutton" />
+    </div>
+
+    <script>
+        let likeButton = document.getElementById("clickbutton");
+        likeButton.addEventListener("click", clickLikeEvent);
+
+        likeCounter = 0;
+
+        function  clickLikeEvent(event) {
+            event.target.value = `👍     Like     ${++likeCounter}`;
+        }
+    </script>
+</body>
+</html>

@@ -11,9 +11,13 @@
         } */
         
         #cordinatesDiv {
+            border: 10px;
+            border-radius: 10px;
+            border-color: navy;
+            color: black;
+            background-color: wheat;
             width: 80%;
             height: 800px;
-            background-color: rgb(97, 17, 129);
         }
     </style>
 </head>
@@ -44,13 +48,12 @@
         let cordinates = document.getElementById("cordinates");
         cordinates.addEventListener("mousemove", moveInfo);
 
-
         let mouseInfo = document.getElementById("mouseInfo");
         mouseInfo.addEventListener("mousemove", moveInfo);
 
         function moveInfo(event) {
             let cordinates = document.getElementById("cordinates");
-            cordinates.innerHTML = 'X -- Y --';
+            cordinates.innerHTML = `X ${event.clientX} Y ${event.clientY}`;
         }
 
         function clickInfo(event) {

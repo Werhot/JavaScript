@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabletask1</title>
+    <style>
+
+        div {
+            background-color: wheat;
+            width: 40%;
+            height: 200px;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+        }
+
+        table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+    </style>
+</head>
+<body>
+   
+    <div>
+        <table>
+            <th>
+                Firstname
+            </th>
+            <th>
+                Lastname
+            </th>
+            <th>
+                Company
+            </th>
+
+            <tr>
+                <td>Bill</td>
+                <td>Gates</td>
+                <td>Microsoft</td>
+            </tr>
+            <tr>
+                <td>Timothy</td>
+                <td>Cook</td>
+                <td>Apple</td>
+            </tr>
+            <tr>
+                <td>Larry</td>
+                <td>Page</td>
+                <td>Google</td>
+            </tr>
+            <tr>
+                <td>Mark</td>
+                <td>Zuckerberg</td>
+                <td>Facebook</td>
+            </tr>
+        
+        </table>
+    </div>
+
+    <script>
+        let tdList = document.querySelectorAll("td");
+        for (let i of tdList) {
+            i.addEventListener("mouseover", changeBackground);
+            i.addEventListener("mouseout", changeBackground);
+        }
+
+        function changeBackground(event) {
+            
+            let cell = event.target; 
+            
+            if (event.type == 'mouseover') {
+                cell.style.backgroundColor = "Orange";
+            }
+
+            else if (event.type == 'mouseout') {
+                cell.style.backgroundColor = "wheat";
+            }
+            
+        }
+
+    </script>
+
+</body>
+</html>
