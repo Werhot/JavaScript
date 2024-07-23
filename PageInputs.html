@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PageInputs</title>
+
+    <style>
+        /* //1 #sing_in_div {
+
+            background-color: lightseagreen;
+            width: 40%;
+            height: 200px;
+
+        }
+
+        #sing_in_div label{
+
+            margin-left: 10%;
+        }   
+
+        #sing_in_button {
+
+            width: 82%;
+
+            margin-left: 10%;
+        } 
+
+        #sing_in_password_input {
+            
+            width: 80%;
+
+            margin-left: 10%;
+        }
+
+        #sing_in_login_input{
+
+            width: 80%;
+
+            margin-left: 10%;
+        } //1 */
+
+        /* //2
+        #registerDiv {
+
+            background-color: lightseagreen;
+            width: 40%;
+            height: 200px;
+
+        }
+
+        #passwordLabel, #emailLabel {
+
+            width: 30%;
+
+            margin-left: 10%;
+
+        }
+
+        #loginLabel {
+
+            margin-left: 36%;
+
+        }
+
+        #repeatPasswordLabel {
+
+            margin-left: 33%;
+
+        }
+
+        #passwordInput, #emailInput {
+
+            width: 30%;
+
+            margin-left: 10%;
+
+        }
+
+
+        #loginInput, #repeatPasswordInput {
+
+            width: 30%;
+
+            margin-left: 15%;
+        }
+
+        #registerButton {
+
+            width: 78%;
+
+            margin-top: 20px;
+            margin-left: 10%;
+        }
+        //2 */
+
+        #save_div{
+            background-color: lightseagreen;
+            width: 40%;
+            height: 250px;
+        }
+
+        #firstname_label, #birthday_label, #country_label, #skills_Label{
+            margin-left: 10%;
+        }
+
+        #firstname_input, #birthday_input, #country_input {
+            margin-left: 10%;
+        }
+
+        #lastname_label {
+            margin-left: 44.8%;
+        }
+
+        #gender_label {
+            margin-left: 46%;
+        }
+
+        #male_label {
+            margin-left: 38.5%;
+        }
+
+        #city_label {
+            margin-left: 46.5%;
+        }
+
+        #lastname_input, #city_input{
+            margin-left: 30%;
+        }
+
+        #save_button{
+            width: 78%;
+
+            margin-top: 20px;
+            margin-left: 10%;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- //1 <from action = "" method = "get">
+
+        <div id = "sing_in_div">
+
+            <div>
+                <label for = "loginInput" id = "sing_in_login_label">Your login:</label><br/>
+                <input type = "text" id = "sing_in_login_input" name = "loginInput"/>
+            </div>
+            
+            <div>
+                <label for = "passwordInput">Your password:</label><br/>
+                <input type = "text" id = "sing_in_password_input" name = "passwordInput"/>
+            </div>
+            
+            <div>
+                <label for = "checkboxInput">Remember me</label>
+                <input type = "checkbox" id = "sing_in_checkbox_input" name = "checkboxInput"/>
+            </div>
+            
+            <div>
+                <input type = "button" value = "Sing In" id = "sing_in_button" name = "buttonInput"/>
+            </div>
+
+        </div>
+    
+    </from> //1 -->
+
+
+
+    <!-- //2 <from action = "" method = "post">
+
+        <div id = "registerDiv">
+
+            <div>
+                <label for = "emailInput" id = "emailLabel">Your email:</label>
+                <label for = "loginInput" id = "loginLabel">Your login:</label><br/>
+                <input type = "email" id = "emailInput" name = "emailInput"/>
+                <input type = "text" id = "loginInput" name = "loginInput"/>
+            </div>
+            
+            <div>
+                <label for = "passwordInput" id = "passwordLabel">Your password:</label>
+                <label for = "repeatPasswordInput" id = "repeatPasswordLabel">Repeat password:</label><br/>
+                <input type = "text" id = "passwordInput" name = "passwordInput"/>
+                <input type = "text" id = "repeatPasswordInput" name = "repeatPasswordInput"/>
+            </div>
+            
+            <div>
+                <input type = "button" value = "Sing Up" id = "registerButton" name = "buttonInput"/>
+            </div>
+
+        </div>
+    
+    </from> //2 -->
+
+     <from action = "" method = "post">
+
+        <div id = "save_div">
+
+            <div>
+                <label for = "firstname_input" id = "firstname_label">Firstname:</label>
+                <label for = "lastname_input" id = "lastname_label">Lastname:</label><br/>
+                <input type = "text" id = "firstname_input" name = "firstname_input"/>
+                <input type = "text" id = "lastname_input" name = "lastname_input"/>
+            </div>
+            
+            <div>
+                <label for = "birthday_input" id = "birthday_label">Birthday:</label>
+                <label for = "gender_input" id = "gender_label">Gender:</label><br/>
+                <input type = "date" id = "birthday_input" name = "birthday_input"/>
+                
+                <label for = "gender_input" id = "male_label">Male</label>
+                <input type = "radio" id = "male_input" name = "gender_input"/>
+
+                <label for = "gender_input" id = "female_label">Female</label>
+                <input type = "radio" id = "female_input" name = "gender_input"/>
+            </div>
+
+            <div>
+                <label for = "country_input" id = "country_label">Country:</label>
+                <label for = "city_input" id = "city_label">City:</label><br/>
+                <input type = "number" id = "country_input" name = "country_input"/>
+                <input type = "number" id = "city_input" name = "city_input"/>
+            </div>
+
+            <div>
+                <label id = "skills_Label">Skills:</label>
+                <input type = "checkbox" id = "html_input" name = "html_input"/>
+                <label for = "html_input">HTML</label>
+
+                <input type = "checkbox" id = "css_input" name = "css_input"/>
+                <label for = "css_input">CSS</label>
+
+                <input type = "checkbox" id = "js_input" name = "js_input"/>
+                <label for = "js_input">JS</label>
+
+                <input type = "checkbox" id = "php_input" name = "php_input"/>
+                <label for = "php_input">PHP</label>
+
+                <input type = "checkbox" id = "c++_input" name = "c++_input"/>
+                <label for = "c++_input">C++</label>
+
+                <input type = "checkbox" id = "java_input" name = "java_input"/>
+                <label for = "java_input">JAVA</label>
+
+                <input type = "checkbox" id = "c#_input" name = "c#_input"/>
+                <label for = "c#_input">C#</label>
+            </div>
+            
+            <div>
+                <input type = "button" value = "Save" id = "save_button" name = "buttonInput"/>
+            </div>
+
+        </div>
+    
+    </from>
+
+    <script>
+
+        /* //1
+        let loginButton = document.getElementById("sing_in_button");
+        loginButton.addEventListener("click", singIn);
+
+        function singIn (event) {
+
+            let loginCheckbox = document.getElementById("sing_in_checkbox_input");
+
+            let remember = loginCheckbox.checked ? "запомнил" : "не запомнил";
+
+            let userLogin = document.getElementById("sing_in_login_input").value;
+
+            alert(`Привет, ${userLogin}! Я тебя ${remember}`);
+
+        }
+        //1 */
+
+        /* //2
+        let registerButton = document.getElementById("registerButton");
+        registerButton.addEventListener("click", register);
+
+        function register (event) {
+            let userEmail = document.getElementById("emailInput").value;
+            alert(`На почту ${userEmail} отправлено письмо с подтверждением`)
+        }
+        //2 */
+
+        let form = document.forms[0];
+        form.addEventListener("submit", saveFunction);
+
+        function saveFunction (event) {
+            
+        }
+    </script>
+   
+</body>
+</html>
