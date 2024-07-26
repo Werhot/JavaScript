@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageForms2</title>
+    <style>
+        #startdiv {
+            background-color: royalblue;
+            width: 80%;
+            height: 200px;
+            border: 5px solid lightblue;
+            border-radius: 10px;
+            color: lightskyblue;
+        }
+        .questionMenu {
+            background-color: royalblue;
+            width: 80%;
+            height: 200px;
+            border: 5px solid lightblue;
+            border-radius: 10px;
+            color: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form method="post">
+            <div id="startdiv">
+                <h1>Test</h1>
+                <input type="submit" id="startButton" value="Start" />
+            </div>
+            <div id="container"></div>
+        </form>
+
+        
+    </div>
+
+    <script>
+        let form = document.forms[0];
+        form.addEventListener("submit", firstProblem);
+
+
+        function firstProblem(event) {
+            event.preventDefault();
+
+            let startdiv = document.getElementById("startdiv");
+            startdiv.remove();
+
+            let questionOne = document.createElement("h1");
+            questionOne.innerHTML = "Сколько океанов на Земле?";
+            questionOne.className = "questionOne";
+
+            let Answer11 = document.createElement("p");
+            Answer11.innerHTML = "7";
+            Answer11.className = "questionOneAnswers";
+
+            let Answer22 = document.createElement("p");
+            Answer22.innerHTML = "5";
+            Answer22.className = "questionOneAnswers";
+
+            let Answer22Input = document.createElement("input");
+            Answer22Input.type = "radio";
+            Answer22.className = "answerInputs";
+
+            let menu = document.createElement("div");
+            menu.className = "questionMenu";
+            menu.appendChild(questionOne);
+            menu.appendChild(Answer11);
+            menu.appendChild(Answer22);
+            menu.appendChild(Answer22Input);
+            
+            
+            document.getElementById("container").appendChild(menu);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageForms</title>
+    <style>
+        #formDiv{
+            background-color: royalblue;
+            width: 80%;
+            height: 200px;
+            border: 5px solid lightblue;
+            border-radius: 10px;
+            color: lightskyblue;
+        }
+        #massageHeader {
+            text-align: center;
+        }
+        #nameLabel {
+            margin-left: 5%;
+        }
+        #massageLabel {
+            margin-left: 5%;
+        }
+        #nameInput {
+            width: 60%;
+        }
+        #massageInput {
+            width: 60%;
+        }
+        #sendButton {
+            margin-left: 10%;
+            margin-top: 20px;
+            width: 80%;
+        }
+
+
+        .massage{
+            background-color: royalblue;
+            width: 80%;
+            height: 200px;
+            border: 5px solid lightblue;
+            border-radius: 10px;
+            color: lightskyblue;
+        }
+        .nameSpan {
+            margin-left: 5%;
+        }
+        .dateSpan {
+            margin-left: 70%;
+        }
+        .textDiv {
+            margin-top: 3%;
+            margin-left: 5%;
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div id="formDiv">
+        <form method = "post">
+            <h1 id="massageHeader">Add more massage:</h1>
+
+            <label for="nameInput" id="nameLabel">Your name:</label>
+            <input type="text" name="nameInput" id="nameInput"><br/>
+
+            <label for="massageInput" id="massageLabel">Your massage:</label>
+            <input type="text" name="massageInput" id="massageInput"><br/>
+
+            <input type="submit" value="Send"  name="sendButton" id="sendButton">
+        </form>
+    </div>
+
+    <div id="massageContainer" >
+    </div>
+
+
+    <script>
+        let form = document.forms[0];
+        form.addEventListener("submit", saveMassage);
+
+        function saveMassage(event) {
+            const date = new Date();
+            const formatter = new Intl.DateTimeFormat('RU', { dateStyle: 'short' });
+            let userDate = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} | ${formatter.format(date)}`;
+            
+            event.preventDefault();
+
+            let userName = document.getElementById("nameInput").value;
+            let userMassage = document.getElementById("massageInput").value;
+
+            let massageName = document.createElement("span");
+            massageName.innerHTML = userName;
+            massageName.className = "nameSpan";
+            
+            let massageDate = document.createElement("span");
+            massageDate.innerHTML = userDate;
+            massageDate.className = "dateSpan";
+
+            let massageText = document.createElement("div");
+            massageText.innerHTML = userMassage;
+            massageText.className = "textDiv";
+
+            let massage = document.createElement("div");
+            massage.className = "massage";
+            massage.appendChild(massageName);
+            massage.appendChild(massageDate);
+            massage.appendChild(massageText);
+            
+
+            document.getElementById("massageContainer").appendChild(massage);
+
+            form.reset();
+        }
+    </script>
+</body>
+</html>
