@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageForms3</title>
+    <style>
+        #singUpDiv {
+            background-color: wheat;
+            width: 95%;
+            height: 400px;
+        }
+
+        #passwordLabel, #emailLabel, #repeatPasswordLabel {
+            width: 30%;
+            margin-left: 5%;
+        }
+
+        #passwordInput, #emailInput, #repeatPasswordInput {
+            width: 75%;
+            margin-left: 5%;
+        }
+
+
+        #singUpButton {
+            width: 75%;
+            margin-top: 20px;
+            margin-left: 5%;
+        }
+
+        #emailSpan, #passwordSpan, #repeatPasswordSpan {
+            margin-left: 5%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form action = "" method = "post">
+        <div id = "singUpDiv">
+            <div>
+                <label for = "emailInput" id = "emailLabel">Your email:</label>
+                <span id="emailSpan">email</span><br/>
+                <input type = "text" id = "emailInput" name = "emailInput" required/>
+            </div>            
+            <div>
+                <label for = "passwordInput" id = "passwordLabel">Your password:</label>
+                <span id="passwordSpan">password</span><br/>
+                <input type = "text" id = "passwordInput" name = "passwordInput" required/><br/>
+                <label for = "repeatPasswordInput" id = "repeatPasswordLabel">Repeat password:</label>
+                <span id="repeatPasswordSpan"></span><br/>
+                <input type = "text" id = "repeatPasswordInput" name = "repeatPasswordInput"/>
+            </div>
+            <div>
+                <input type = "submit" value = "Sing Up" id = "singUpButton" name = "buttonInput"/>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        let singUpForm = document.forms[0];
+        singUpForm.addEventListener("submit", singUp);
+
+        function singUp (event) {
+            event.preventDefault();
+            let password = document.getElementById("passwordInput").value;
+            let repeatpassword = document.getElementById("repeatPasswordInput").value;
+            let passwordCorrect = false;
+            let lowerCase = /[a-z]/;
+            let upperCase = /[A-Z]/;
+
+            if (password.length >= 6) {
+                passwordCorrect = true;
+
+                if (lowerCase.test(password)) {
+                    passwordCorrect = true;
+
+                    if (upperCase.test(password)) {
+                        passwordCorrect = true;
+
+                        if (/\d/.test(password)) {
+                            passwordCorrect = true;
+                        } else {
+                            passwordCorrect = false;
+                        }
+                    }
+                }
+            } 
+            
+            if (!passwordCorrect) {
+                let passwordSpan = document.getElementById("passwordSpan");
+                passwordSpan.style.display = "inline";
+                passwordSpan.style.color = "red";
+                passwordSpan.style.fontSize = "15px";
+                passwordSpan.innerText = "Обязательно должны присутствовать: Минимум 6 символов; 1 буква в нижнем регистре; 1 буква в верхнем регистре; и 1 цифра.";
+            }
+
+            if (password !== repeatpassword) {
+                let repeatPasswordSpan = document.getElementById("repeatPasswordSpan");
+                repeatPasswordSpan.style.display = "inline";
+                repeatPasswordSpan.style.color = "red";
+                repeatPasswordSpan.style.fontSize = "15px";
+                repeatPasswordSpan.innerText = "Пароли должны совпадать";
+            } else if (password == repeatpassword && passwordCorrect == true) {
+                let repeatPasswordSpan = document.getElementById("repeatPasswordSpan");
+                repeatPasswordSpan.style.display = "inline";
+                repeatPasswordSpan.style.color = "green";
+                repeatPasswordSpan.style.fontSize = "15px";
+                repeatPasswordSpan.innerText = "Пароли совпали";
+            }
+        }
+    </script>
+</body>
+</html>
