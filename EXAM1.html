@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXAM1</title>
+    <style>
+        #main_div {
+            display: inline-block;
+
+            background-color: rgb(226, 226, 203);
+
+            width: 1500px;
+
+            height: 1000px;
+        }
+        #form_div {
+            display: inline-block;
+
+            border: 1px solid;
+
+            margin-left: 40%;
+            margin-top: 20px;
+
+            padding: 20px;
+        }
+        #form_div label {
+            margin-right: 60px;
+        }
+        #searchButton {
+            margin-top: 20px;
+            margin-left: 3%;
+
+            width: 96%;
+        }
+        .searchDiv {
+            margin-top: 10px;
+        }
+        .searchSpan {
+            display: inline-block;
+
+            margin-left: 50%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            font-weight: bolder;
+        }
+        .movieDiv {
+            display: inline-block;
+
+            border: 1px solid;
+
+            padding: 15px;
+
+            width: 400px;
+
+            margin-left: 40px;
+        }
+        .detailsButton {
+            width: 30%;
+        }
+        .movieDiv img {
+
+            width: 40%;
+
+            float: left;
+
+            margin-right: 20px;
+        }
+        .moviesTitles {
+            font-weight: bolder;
+        }
+        #siteDiv {
+            margin-top: 20px;
+            margin-left: 45%;
+        }
+        #container {
+            border: 1px solid;
+
+            width: 600px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="main_div">
+        <text class="searchSpan">Search:</text><br/>
+        <div id="form_div">
+            <form action="" method="get">
+                <div class="searchDiv">
+                    <label for="titleInput">Title:</label>
+                    <input type="text" name="titleInput" id="titleInput"/><br/>
+                </div>
+                
+                <div class="searchDiv">
+                    <label for="typeInput">Type:</label>
+                    <select id="typeInput" name="typeInput">
+                        <option value="movie">movie</option>
+                        <option value="series">series</option>
+                        <option value="episode">episode</option>
+                    </select>
+                </div>
+                <input type="submit" value="Search" id="searchButton" name="searchButton"/>
+            </form>
+        </div><br/>
+        <span class="searchSpan"> Films:</span><br/>
+        <div class ="movieDiv">
+            <img src="" alt="" id="movie1Img" style="width: 40%; height: 150px;"/>
+            <span>movie</span>
+            <p id="movie1Title" class="moviesTitles"></p>
+            <p id="movie1Year"></p><br/>
+            <input type="button" value="Details" class="detailsButton"/>
+        </div>
+        <div class ="movieDiv">
+            <img src="" alt="" id="movie2Img" style="width: 40%; height: 150px;"/>
+            <span>movie</span>
+            <p id="movie2Title" class="moviesTitles"></p>
+            <p id="movie2Year"></p><br/>
+            <input type="button" value="Details" class="detailsButton"/>
+        </div>
+        <div class ="movieDiv">
+            
+            <img src="" alt="" id="movie3Img" style="width: 40%; height: 150px;"/>
+            <span>movie</span>
+            <p id="movie3Title" class="moviesTitles"></p>
+            <p id="movie3Year"></p><br/>
+            <input type="button" value="Details"class="detailsButton" name="detailsButton"/>
+        </div><br/>
+        <div id="siteDiv">
+            <input type="button" value="&lt;&lt;" class="sitesNumber"/>
+            <input type="button" value="1" class="sitesNumber"/>
+            <input type="button" value="2" class="sitesNumber"/>
+            <input type="button" value="3" class="sitesNumber"/>
+            <input type="button" value="4" class="sitesNumber"/>
+            <input type="button" value="5" class="sitesNumber"/>
+            <input type="button" value="6" class="sitesNumber"/>
+            <input type="button" value=">>" class="sitesNumber"/>
+        </div>
+        <div id="container"></div>
+    </div>
+
+    <script>
+        let request = new XMLHttpRequest();
+        request.open("GET", "https://www.omdbapi.com/?apikey=338f81e&s=hello");
+        request.send();
+
+        let response;
+
+        let searchForm = document.forms[0];
+        searchForm.addEventListener("submit", searchMovie);
+
+        function searchMovie (event) {
+            event.preventDefault();
+            let titleInput = document.getElementById("titleInput").value;
+            let typeInput = document.getElementById("typeInput").value;
+        }
+
+        request.onload = function () {
+            response = request.response;
+            let movies = JSON.parse(request.response).Search;
+
+            let movie1Title = document.getElementById("movie1Title");
+            movie1Title.innerText = movies[0].Title;
+
+            let movie1Year = document.getElementById("movie1Year");
+            movie1Year.innerText = movies[0].Year;
+
+            let movie1Img = document.getElementById("movie1Img");
+            movie1Img.src = movies[0].Poster;
+
+
+
+            let movie2Title = document.getElementById("movie2Title");
+            movie2Title.innerText = movies[1].Title;
+
+            let movie2Year = document.getElementById("movie2Year");
+            movie2Year.innerText = movies[1].Year;
+
+            let movie2Img = document.getElementById("movie2Img");
+            movie2Img.src = movies[1].Poster;
+
+
+
+            let movie3Title = document.getElementById("movie3Title");
+            movie3Title.innerText = movies[2].Title;
+
+            let movie3Year = document.getElementById("movie3Year");
+            movie3Year.innerText = movies[2].Year;
+
+            let movie3Img = document.getElementById("movie3Img");
+            movie3Img.src = movies[2].Poster;
+            
+            let detailsButton = document.getElementsByClassName("detailsButton");
+            
+            detailsButton.onclick = showID(movies[0].imdbID);
+
+            function showID (id) {
+
+                let requestIP = new XMLHttpRequest();
+                requestIP.open("GET", `https://www.omdbapi.com/?apikey=338f81e&i=${id}`);
+                requestIP.send();
+
+                let responseIP;
+
+                requestIP.onload = function () {
+                    
+                    let responseIP = requestIP.response;
+                    let moviesInfo = JSON.parse(requestIP.response);
+                
+                    let container = document.getElementById("container");
+                    container.style.display = "block";
+                    
+                    container.innerHTML = `
+                        <span>Title</span><br/>
+                        <img src="${moviesInfo.Poster}" alt="" id="movie1Img" style="width: 40%; height: 400px;"/>
+                        <table style="display: inline-block; margin-bottom: 100px;">
+                            <tr>
+                                <td>Title:</td>
+                                <td>${moviesInfo.Title}</td>
+                            </tr>
+                            <tr>
+                                <td>Released:</td>
+                                <td>${moviesInfo.Released}</td>
+                            </tr>
+                            <tr>
+                                <td>Country:</td>
+                                <td>${moviesInfo.Country}</td>
+                            </tr>
+                            <tr>
+                                <td>Director:</td>
+                                <td>${moviesInfo.Director}</td>
+                            </tr>
+                            <tr>
+                                <td>Writer:</td>
+                                <td>${moviesInfo.Writer}</td>
+                            </tr>
+                            <tr>
+                                <td>Actors:</td>
+                                <td>${moviesInfo.Actors}</td>
+                            </tr>
+                            <tr>
+                                <td>Awards:</td>
+                                <td>${moviesInfo.Awards}</td>
+                            </tr>
+                        </table>`;
+
+                }
+            }
+        }
+    </script>
+</body>
+</html>
